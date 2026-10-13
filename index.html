@@ -763,6 +763,15 @@ footer .brand{margin-bottom:14px}
   document.querySelectorAll('a[href*="wa.me"]').forEach(function(a){
     a.addEventListener('click', function(){
       window.dataLayer.push({ event: 'whatsapp_click', cta: a.getAttribute('data-cta') || 'sem-nome' });
+      /* Google Ads - conversao Contato no clique do WhatsApp (AW-18440339808) */
+      if (typeof gtag === 'function') {
+        gtag('event', 'conversion', {
+          'send_to': 'AW-18440339808/s3EaCKiS9psdEOCChdlE',
+          'value': 1.0,
+          'currency': 'BRL',
+          'transport_type': 'beacon'
+        });
+      }
     });
   });
 
